@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: ibc_todo_list_production
-  username: ibc_todo_list
-  password: <%= ENV['IBC_TODO_LIST_DATABASE_PASSWORD'] %>
+  database: <%= ENV[‘RDS_DB_NAME’] %>
+  username: <%= ENV[‘RDS_USERNAME’] %>
+  password: <%= ENV[‘RDS_PASSWORD’] %>
+  host: <%= ENV[‘RDS_HOSTNAME’] %>
+  port: <%= ENV[‘RDS_PORT’] %>
