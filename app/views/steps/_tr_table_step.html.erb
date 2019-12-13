@@ -1,0 +1,11 @@
+<td><%= h step.id %> </td>
+<td><%= h step.name %> </td>
+<td>
+  <%= link_to edit_step_path(step),
+              {remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window',
+               class: 'btn btn-warning btn-sm'} do %>
+    <i class="fa fa-thumbs-o-down"></i> Editar
+  <% end %>
+  <%= link_to 'Deletar', step, class: "btn btn-danger btn-sm", title: "Deletar Board",
+              method: :delete, data: {confirm: 'Você tem certeza?'}, remote: true %>
+</td>

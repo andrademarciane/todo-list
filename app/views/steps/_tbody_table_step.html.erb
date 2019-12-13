@@ -1,0 +1,5 @@
+<% steps.each do |step| %>
+  <tr id="tr_step_<%= step.id %>">
+   <%= render 'steps/tr_table_step', step: step %>
+  </tr>
+<% end %>

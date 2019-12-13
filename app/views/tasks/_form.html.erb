@@ -1,27 +1,58 @@
-<%= form_with(model: task, local: true) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<div id="tasks">
+  <%= f.fields_for :tasks do |ff| %>
+    <div class="form-group col-md-12">
+      <div class="card border-dark">
+        <div class="card-header">
+          Editar Task
+        </div>
+        <div class="card-body text-dark">
 
-      <ul>
-        <% task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+          <div class="form-group">
+            <%= h ff.text_field :name, class: 'form-control', placeholder: "Digite o Nome", label: "Nome" %>
+          </div>
+
+          <div class="form-group">
+            <%= h ff.text_area :description, :rows => 5, :class => 'form-control', :label => "Descrição",
+                               :placeholder => "Digite a descrição", :label_col => "col-sm-2", :control_col => "col-sm-10" %>
+
+          </div>
+
+          <% unless ff.object.new_record? %>
+            <div class="form-group">
+              <%= link_to new_step_path(task_id: ff.object.id),
+                          {:remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window',
+                           class: 'btn btn-primary btn-md'} do %>
+                <i class="fa fa-thumbs-o-down"></i> Inserir Step
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <div class="table-step">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Step</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                  </thead>
+                  <tbody id="tbody_step_<%= ff.object.id %>">
+                  <%= render 'steps/tbody_table_step', steps: ff.object.steps %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="card-footer text-dark">
+          <div class="form-group">
+            <%= ff.link_to_remove class: 'btn btn-danger btn-sm' do %>
+              <i class="fa fa-trash-o"></i> Remover Task
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :board %>
-    <%= form.text_field :board %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

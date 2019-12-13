@@ -1,0 +1,22 @@
+<%= bootstrap_form_for @step, html: {id: "form_step_#{@step.task_id}", remote: true} do |f| %>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">x</button>
+    <h4 class="modal-title" id="myModalLabel">Inserir Step</h4>
+  </div>
+  <div class="modal-body">
+    <%= f.hidden_field :task_id %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= h f.text_field :name, class: 'form-control',
+                           label: 'Nome',
+                           placeholder: "Digite o nome" %>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-white pull-left" data-dismiss="modal">Fechar</button>
+    <%= f.submit "Salvar", class: 'btn btn-primary', remote: true, data: {disable_with: "Salvando..."} do %>
+      <i class="fa fa-save"></i>
+    <% end %>
+  </div>
+<% end %>

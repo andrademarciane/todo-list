@@ -1,0 +1,4 @@
+$('#modal-step').modal('hide');
+$("#modal-content-step").html("");
+
+$('#tbody_step_<%= @step.task_id %>').html("<%= j(render('steps/tbody_table_step', steps: @steps)) %>");

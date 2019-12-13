@@ -1,0 +1,4 @@
+$('#modal-step').modal('hide');
+$("#modal-content-step").html("");
+
+$('#tr_step_<%= @step.id %>').html("<%= j(render('steps/tr_table_step', step: @step)) %>");

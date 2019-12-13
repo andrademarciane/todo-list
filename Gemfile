@@ -50,7 +50,16 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
+  gem 'shoulda-matchers'
+  gem 'faker', '~> 2.8', '>= 2.8.1'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'bootstrap_form', '~> 4.3'
+gem 'nested_form', '~> 0.3.2'
+group :development, :test do
+  gem 'rspec-rails', '4.0.0.beta3'
+end

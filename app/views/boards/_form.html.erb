@@ -1,22 +1,49 @@
-<%= form_with(model: board, local: true) do |form| %>
-  <% if board.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+<%= nested_form_for board, :html => {:id => "board_create", :role => "form"} do |f| %>
+  <div id="error_explanation">
+    <ul>
+      <% board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 
-      <ul>
-        <% board.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="form-inline form-group">
+    <div class="form-group col-3">
+      <%= h f.text_field :name, class: 'form-control col-12',
+                         placeholder: "Digite o Nome", label: "Nome" %>
+    </div>
+    <button type="submit" class="btn btn-success col-auto" style="margin-right: 5px;">Salvar</button>
+
+    <%= f.link_to_add :tasks,
+                      data: {target: '#tasks'},
+                      class: 'btn btn-primary col-auto',
+                      style: "margin-right: 5px;" do %>
+      <span class="fa fa-plus"></span> Adicionar Task
+    <% end %>
+
+    <% if f.object.tasks.blank? %>
+      <%= link_to 'Voltar', boards_path, class: "btn btn-secondary col-auto" %>
+    <% end %>
+  </div>
+
+  <%= render 'tasks/form', f: f %>
+
+  <% if f.object.tasks.present? %>
+    <div class="form-group col-md-12">
+      <div class="form-row">
+        <div class="col-2">
+          <%= link_to 'Voltar', boards_path, class: "btn btn-secondary" %>
+        </div>
+        <div class="col-10">
+          <button type="submit" class="btn btn-success float-right">Salvar</button>
+        </div>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+
+<div id="modal-step" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" id="modal-content-step"></div>
+  </div>
+</div>
