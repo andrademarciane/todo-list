@@ -1,0 +1,44 @@
+{
+  "application.js": "/packs/js/application-7e9bc3ca135105392ae3.js",
+  "application.js.map": "/packs/js/application-7e9bc3ca135105392ae3.js.map",
+  "custom.js": "/packs/js/custom-f152cc65e9efcc042c8e.js",
+  "custom.js.map": "/packs/js/custom-f152cc65e9efcc042c8e.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-7e9bc3ca135105392ae3.js"
+      ],
+      "js.map": [
+        "/packs/js/application-7e9bc3ca135105392ae3.js.map"
+      ]
+    },
+    "custom": {
+      "js": [
+        "/packs/js/custom-f152cc65e9efcc042c8e.js"
+      ],
+      "js.map": [
+        "/packs/js/custom-f152cc65e9efcc042c8e.js.map"
+      ]
+    },
+    "stylesheets/styles_general": {
+      "js": [
+        "/packs/js/stylesheets/styles_general-9657913cd3a40827680d.js"
+      ],
+      "js.map": [
+        "/packs/js/stylesheets/styles_general-9657913cd3a40827680d.js.map"
+      ]
+    },
+    "stylesheets/styles": {
+      "js": [
+        "/packs/js/stylesheets/styles-f99acfda96ec07a0f965.js"
+      ],
+      "js.map": [
+        "/packs/js/stylesheets/styles-f99acfda96ec07a0f965.js.map"
+      ]
+    }
+  },
+  "stylesheets/styles.js": "/packs/js/stylesheets/styles-f99acfda96ec07a0f965.js",
+  "stylesheets/styles.js.map": "/packs/js/stylesheets/styles-f99acfda96ec07a0f965.js.map",
+  "stylesheets/styles_general.js": "/packs/js/stylesheets/styles_general-9657913cd3a40827680d.js",
+  "stylesheets/styles_general.js.map": "/packs/js/stylesheets/styles_general-9657913cd3a40827680d.js.map"
+}
