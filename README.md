@@ -5,6 +5,7 @@ Características :
 * Boards ilimitados
 * Tasks ilimitadas
 * Etapas ilimitadas
-Especificações:
+
+Especificações :
 * Possui testes unitários
 * Aplicação rodando no Heroku (https://ibc-todo-list.herokuapp.com/)
